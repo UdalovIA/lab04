@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-
+#include "histogram.h"
 using namespace std;
 vector<double> input_numbers(size_t count) {
     vector<double> result(count);
@@ -8,19 +8,6 @@ vector<double> input_numbers(size_t count) {
         cin >> result[i];
     }
     return result;
-}
-void find_minmax(const vector<double>& numbers, double& min, double& max) {
-    min = numbers[0];
-    max = numbers[0];
-    // (здесь код поиска минимума и максимума)
-    for (double number : numbers) {
-        if (number < min) {
-            min = number;
-        }
-        if (number > max) {
-            max = number;
-        }
-    }
 }
 vector<size_t> make_histogram(const vector<double>& numbers,const size_t& bin_count,const double& min,const double& max){
     vector<size_t> result(bin_count);
@@ -85,17 +72,28 @@ void svg_rect(double x, double y, double width, double height, string stroke = "
     cout << "<rect x='" << x << "' y='" << y << "' width='" << width << "' height='" << height << "' stroke='" << stroke << "' fill='" << fill << "'/>";
 }
 void show_histogram_svg(const vector<size_t>& bins) {
-    const auto IMAGE_WIDTH = 400;
+    const float IMAGE_WIDTH = 400;
     const auto IMAGE_HEIGHT = 300;
     const auto TEXT_LEFT = 20;
     const auto TEXT_BASELINE = 20;
     const auto TEXT_WIDTH = 50;
     const auto BIN_HEIGHT = 30;
     const auto BLOCK_WIDTH = 10;
+    size_t max_count = 0;
+    for (size_t count : bins) {
+        if (count > max_count) {
+            max_count = count;
+        }
+    }
+    double scaling_factor = 1;
+    if ((max_count*BLOCK_WIDTH) > IMAGE_WIDTH) {
+        scaling_factor = (IMAGE_WIDTH / (max_count*BLOCK_WIDTH));
+    }
     svg_begin(IMAGE_WIDTH, IMAGE_HEIGHT);
     double top = 0;
     for (size_t bin : bins) {
-    const double bin_width = BLOCK_WIDTH * bin;
+    const double bin_width = BLOCK_WIDTH * bin * scaling_factor;
+    cout << scaling_factor;
     svg_text(TEXT_LEFT, top + TEXT_BASELINE, to_string(bin));
     svg_rect(TEXT_WIDTH, top, bin_width, BIN_HEIGHT);
     top += BIN_HEIGHT;

@@ -1,5 +1,9 @@
 # depslib dependency file v1.0
-1621044413 source:c:\users\ilyau\onedrive\desktop\ЛАБЫ\прога 2 сем\cs19-lab01-master\main.cpp
+1621089449 source:c:\users\ilyau\onedrive\desktop\ЛАБЫ\прога 2 сем\cs19-lab01-master\main.cpp
 	<iostream>
+	<vector>
+	"histogram.h"
+
+1621089430 c:\users\ilyau\onedrive\desktop\ЛАБЫ\прога 2 сем\cs19-lab01-master\histogram.h
 	<vector>
 
