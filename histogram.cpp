@@ -86,7 +86,16 @@ void svg_rect(double x, double y, double width, double height, string stroke = "
     cout << "<rect x='" << x << "' y='" << y << "' width='" << width << "' height='" << height << "' stroke='" << stroke << "' fill='" << fill << "'/>";
 }
 void show_histogram_svg(const vector<size_t>& bins) {
-    const float IMAGE_WIDTH = 400;
+    float IMAGE_WIDTH;
+    do {
+    cerr << "Width: ";
+    cin >> IMAGE_WIDTH;
+    if (IMAGE_WIDTH < 70)
+        cerr << "The value is too small" << endl;
+    else if (IMAGE_WIDTH > 800)
+        cerr << "The value is too big" << endl;
+    }
+    while(IMAGE_WIDTH > 800 | IMAGE_WIDTH < 70);
     const auto IMAGE_HEIGHT = 300;
     const auto TEXT_LEFT = 20;
     const auto TEXT_BASELINE = 20;
@@ -107,7 +116,6 @@ void show_histogram_svg(const vector<size_t>& bins) {
     double top = 0;
     for (size_t bin : bins) {
     const double bin_width = BLOCK_WIDTH * bin * scaling_factor;
-    cout << scaling_factor;
     svg_text(TEXT_LEFT, top + TEXT_BASELINE, to_string(bin));
     svg_rect(TEXT_WIDTH, top, bin_width, BIN_HEIGHT);
     top += BIN_HEIGHT;
