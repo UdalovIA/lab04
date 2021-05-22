@@ -39,11 +39,13 @@ read_input(istream& in) {
 
     return data;
 }
-vector<size_t> make_histogram(const vector<double>& numbers,const size_t& bin_count,const double& min,const double& max){
-    vector<size_t> result(bin_count);
-    for (double number : numbers) {
-        size_t bin = (size_t)((number - min) / (max - min) * bin_count);
-        if (bin == bin_count) {
+vector<size_t> make_histogram(Input input){
+    double min, max;
+    find_minmax(input.numbers, min, max);
+    vector<size_t> result(input.bin_count);
+    for (double number : input.numbers) {
+        size_t bin = (size_t)((number - min) / (max - min) * input.bin_count);
+        if (bin == input.bin_count) {
             bin--;
         }
         result[bin]++;
