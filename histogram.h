@@ -7,7 +7,7 @@ struct Input {
     size_t bin_count;
 };
 Input
-read_input(istream& in);
+read_input(istream& in, bool prompt);
 void find_minmax(const vector<double> numbers, double& min, double& max);
 vector<double> input_numbers(istream& in, size_t count);
 vector<size_t> make_histogram(Input input);
