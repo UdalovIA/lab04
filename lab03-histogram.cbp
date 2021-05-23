@@ -31,7 +31,12 @@
 		<Compiler>
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
+			<Add directory="C:/Users/ilyaU/OneDrive/Desktop/ЛАБЫ/прога 2 сем/cs19-lab01-master/curl/include" />
 		</Compiler>
+		<Linker>
+			<Add library="libcurl.dll.a" />
+			<Add directory="C:/Users/ilyaU/OneDrive/Desktop/ЛАБЫ/прога 2 сем/cs19-lab01-master/curl/lib" />
+		</Linker>
 		<Unit filename="histogram.cpp" />
 		<Unit filename="histogram.h">
 			<Option target="&lt;{~None~}&gt;" />
