@@ -36,7 +36,15 @@ read_input(istream& in,bool prompt) {
     if(prompt)
     cerr << "Enter column count: ";
     in >> data.bin_count;
-
+    do {
+    cerr << "Width: ";
+    in >> data.image_wigth;
+    if (data.image_wigth < 70)
+        cerr << "The value is too small" << endl;
+    else if (data.image_wigth > 800)
+        cerr << "The value is too big" << endl;
+    }
+    while(data.image_wigth > 800 | data.image_wigth < 70);
     return data;
 }
 vector<size_t> make_histogram(Input input){
@@ -103,17 +111,8 @@ void svg_text(double left, double baseline, string text) {
 void svg_rect(double x, double y, double width, double height, string stroke = "black", string fill = "black"){
     cout << "<rect x='" << x << "' y='" << y << "' width='" << width << "' height='" << height << "' stroke='" << stroke << "' fill='" << fill << "'/>";
 }
-void show_histogram_svg(const vector<size_t>& bins) {
-    float IMAGE_WIDTH = 100;
-    ///do {
-    //cerr << "Width: ";
-    //cin >> IMAGE_WIDTH;
-    //if (IMAGE_WIDTH < 70)
-       // cerr << "The value is too small" << endl;
-   // else if (IMAGE_WIDTH > 800)
-      //  cerr << "The value is too big" << endl;
-    //}
-    while(IMAGE_WIDTH > 800 | IMAGE_WIDTH < 70);
+void show_histogram_svg(const vector<size_t>& bins,Input input) {
+    const auto IMAGE_WIDTH = input.image_wigth;
     const auto IMAGE_HEIGHT = 300;
     const auto TEXT_LEFT = 20;
     const auto TEXT_BASELINE = 20;

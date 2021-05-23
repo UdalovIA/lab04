@@ -1,10 +1,10 @@
 # depslib dependency file v1.0
-1621763493 source:c:\users\ilyau\onedrive\desktop\ЛАБЫ\прога 2 сем\cs19-lab01-master\main.cpp
+1621773922 source:c:\users\ilyau\onedrive\desktop\ЛАБЫ\прога 2 сем\cs19-lab01-master\main.cpp
 	<iostream>
 	<vector>
 	"histogram.h"
 
-1621763493 c:\users\ilyau\onedrive\desktop\ЛАБЫ\прога 2 сем\cs19-lab01-master\histogram.h
+1621773895 c:\users\ilyau\onedrive\desktop\ЛАБЫ\прога 2 сем\cs19-lab01-master\histogram.h
 	<vector>
 	<string>
 	<sstream>

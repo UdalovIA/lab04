@@ -13,6 +13,6 @@ int main(int argc, char* argv[]) {
     }
 
     const auto bins = make_histogram(input);
-    show_histogram_svg(bins);
+    show_histogram_svg(bins, input);
     return 0;
 }
