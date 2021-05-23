@@ -5,11 +5,11 @@
 	"histogram.h"
 	<curl/curl.h>
 
-1621718361 c:\users\ilyau\onedrive\desktop\ЛАБЫ\прога 2 сем\cs19-lab01-master\histogram.h
+1621761902 c:\users\ilyau\onedrive\desktop\ЛАБЫ\прога 2 сем\cs19-lab01-master\histogram.h
 	<vector>
 	<string>
 
-1621718361 source:c:\users\ilyau\onedrive\desktop\ЛАБЫ\прога 2 сем\cs19-lab01-master\histogram.cpp
+1621761902 source:c:\users\ilyau\onedrive\desktop\ЛАБЫ\прога 2 сем\cs19-lab01-master\histogram.cpp
 	"histogram.h"
 	<iostream>
 
