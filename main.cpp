@@ -4,7 +4,8 @@
 using namespace std;
 
 int main() {
-    // Р’РІРѕРґ РґР°РЅРЅС‹С…
+    // Ввод данных
+    string info = make_info_text();
     size_t number_count;
     cerr << "Enter number count: ";
     cin >> number_count;
@@ -13,11 +14,11 @@ int main() {
     size_t bin_count;
     cerr << "Enter column count: ";
     cin >> bin_count;
-    // РћР±СЂР°Р±РѕС‚РєР° РґР°РЅРЅС‹С…
+    // Обработка данных
     double min, max;
     find_minmax(numbers, min, max);
     const auto bins = make_histogram(numbers, bin_count, min, max);
-    // Р’С‹РІРѕРґ РґР°РЅРЅС‹С…
-    show_histogram_svg(bins);
+    // Вывод данных
+    show_histogram_svg(bins, info);
     return 0;
 }
