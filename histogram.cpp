@@ -104,7 +104,7 @@ void svg_text(double left, double baseline, string text) {
 void svg_rect(double x, double y, double width, double height, string stroke = "black", string fill = "black"){
     cout << "<rect x='" << x << "' y='" << y << "' width='" << width << "' height='" << height << "' stroke='" << stroke << "' fill='" << fill << "'/>";
 }
-void show_histogram_svg(const vector<size_t>& bins,Input input) {
+void show_histogram_svg(const vector<size_t>& bins,Input input,string info ) {
     const auto IMAGE_WIDTH = input.image_wigth;
     const auto IMAGE_HEIGHT = 300;
     const auto TEXT_LEFT = 20;
