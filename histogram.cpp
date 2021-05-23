@@ -104,15 +104,15 @@ void svg_rect(double x, double y, double width, double height, string stroke = "
     cout << "<rect x='" << x << "' y='" << y << "' width='" << width << "' height='" << height << "' stroke='" << stroke << "' fill='" << fill << "'/>";
 }
 void show_histogram_svg(const vector<size_t>& bins) {
-    float IMAGE_WIDTH;
-    do {
-    cerr << "Width: ";
-    cin >> IMAGE_WIDTH;
-    if (IMAGE_WIDTH < 70)
-        cerr << "The value is too small" << endl;
-    else if (IMAGE_WIDTH > 800)
-        cerr << "The value is too big" << endl;
-    }
+    float IMAGE_WIDTH = 100;
+    ///do {
+    //cerr << "Width: ";
+    //cin >> IMAGE_WIDTH;
+    //if (IMAGE_WIDTH < 70)
+       // cerr << "The value is too small" << endl;
+   // else if (IMAGE_WIDTH > 800)
+      //  cerr << "The value is too big" << endl;
+    //}
     while(IMAGE_WIDTH > 800 | IMAGE_WIDTH < 70);
     const auto IMAGE_HEIGHT = 300;
     const auto TEXT_LEFT = 20;
@@ -140,3 +140,35 @@ void show_histogram_svg(const vector<size_t>& bins) {
     }
     svg_end();
 }
+size_t
+write_data(void* items, size_t item_size, size_t item_count, void* ctx) {
+    size_t data_size;
+    data_size=item_size * item_count;
+    const char* new_items = reinterpret_cast<const char*>(items);
+    stringstream* buffer = reinterpret_cast<stringstream*>(ctx);
+    buffer->write(new_items, data_size);
+    return data_size;
+}
+Input
+download(const string& address) {
+    stringstream buffer;
+    curl_global_init(CURL_GLOBAL_ALL);
+    CURL *curl = curl_easy_init();
+            if(curl) {
+                CURLcode res;
+                curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, FALSE);
+                curl_easy_setopt(curl, CURLOPT_URL, address.c_str());
+                curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_data);
+                curl_easy_setopt(curl, CURLOPT_WRITEDATA, &buffer);
+                res = curl_easy_perform(curl);
+                 if (res != 0)
+                {
+                cout << curl_easy_strerror(res) << endl;
+                exit(1);
+                }
+                curl_easy_cleanup(curl);
+
+    return read_input(buffer, false);
+    }
+}
+
