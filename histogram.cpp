@@ -36,15 +36,8 @@ read_input(istream& in,bool prompt) {
     if(prompt)
     cerr << "Enter column count: ";
     in >> data.bin_count;
-    do {
-    cerr << "Width: ";
-    in >> data.image_wigth;
-    if (data.image_wigth < 70)
-        cerr << "The value is too small" << endl;
-    else if (data.image_wigth > 800)
-        cerr << "The value is too big" << endl;
-    }
-    while(data.image_wigth > 800 | data.image_wigth < 70);
+    data.image_wigth = 400;
+    //do {cerr << "Width: ";in >> data.image_wigth;if (data.image_wigth < 70)cerr << "The value is too small" << endl;else if (data.image_wigth > 800)cerr << "The value is too big" << endl;}while(data.image_wigth > 800 | data.image_wigth < 70);
     return data;
 }
 vector<size_t> make_histogram(Input input){
@@ -160,14 +153,22 @@ download(const string& address) {
                 curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_data);
                 curl_easy_setopt(curl, CURLOPT_WRITEDATA, &buffer);
                 res = curl_easy_perform(curl);
+                double total;
+                CURLcode result = curl_easy_perform(curl);
+                    if(CURLE_OK == result) {
+                        result = curl_easy_getinfo(curl, CURLINFO_TOTAL_TIME, &total);
+                    if(CURLE_OK == result) {
+                    cerr << "Time: " << total;
+                    }
+                        }
                  if (res != 0)
                 {
                 cout << curl_easy_strerror(res) << endl;
                 exit(1);
                 }
                 curl_easy_cleanup(curl);
-
+            }
     return read_input(buffer, false);
     }
-}
+
 

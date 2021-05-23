@@ -4,13 +4,13 @@
 	<vector>
 	"histogram.h"
 
-1621773895 c:\users\ilyau\onedrive\desktop\ЛАБЫ\прога 2 сем\cs19-lab01-master\histogram.h
+1621774357 c:\users\ilyau\onedrive\desktop\ЛАБЫ\прога 2 сем\cs19-lab01-master\histogram.h
 	<vector>
 	<string>
 	<sstream>
 	<curl/curl.h>
 
-1621763014 source:c:\users\ilyau\onedrive\desktop\ЛАБЫ\прога 2 сем\cs19-lab01-master\histogram.cpp
+1621774174 source:c:\users\ilyau\onedrive\desktop\ЛАБЫ\прога 2 сем\cs19-lab01-master\histogram.cpp
 	"histogram.h"
 	<iostream>
 

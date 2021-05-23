@@ -7,7 +7,7 @@ using namespace std;
 struct Input {
     vector<double> numbers;
     size_t bin_count;
-    float image_wigth = 100;
+    float image_wigth;
 };
 Input
 read_input(istream& in, bool prompt);
