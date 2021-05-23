@@ -129,9 +129,12 @@ void show_histogram_svg(const vector<size_t>& bins,Input input) {
     svg_text(TEXT_LEFT, top + TEXT_BASELINE, to_string(bin));
     svg_rect(TEXT_WIDTH, top, bin_width, BIN_HEIGHT);
     top += BIN_HEIGHT;
+
     }
+    svg_text(TEXT_LEFT, top + TEXT_BASELINE, info);
     svg_end();
 }
+
 size_t
 write_data(void* items, size_t item_size, size_t item_count, void* ctx) {
     size_t data_size;
@@ -171,4 +174,33 @@ download(const string& address) {
     return read_input(buffer, false);
     }
 
+
+
+string make_info_text()
+{
+    stringstream buffer;
+    DWORD info = GetVersion();
+    DWORD mask = 0x0000ffff;
+    DWORD build;
+    DWORD platform = info >> 16;
+    DWORD version = info & mask;
+    DWORD version_major = version & 0xff;
+    DWORD version_minor = version >> 8;
+    //printf("M_version10 = %lu\n",version_major);
+    //printf("M_version16 = %08lx\n",version_major);
+    //printf("m_version10 = %lu\n",version_minor);
+    //printf("m_version16 = %08lx\n",version_minor);
+    if ((info & 0x80000000) == 0)
+    {
+    build = platform;
+    }
+    else printf("minor_bit = %u",1);
+    //printf("Windows v%lu.%lu (build %lu)\n",version_major,version_minor,build);
+    char system_name[MAX_COMPUTERNAME_LENGTH + 1];
+    DWORD Size = sizeof(system_name);
+    GetComputerNameA(system_name, &Size);
+    //printf("System name: %s\n", system_name);
+    buffer << "Windows v" << version_major << "." << version_minor << " (build " << build << ")" << " " << "Computer name: " << system_name;
+    return buffer.str();
+}
 

@@ -3,6 +3,7 @@
 #include <string>
 #include <sstream>
 #include <curl/curl.h>
+#include <windows.h>
 using namespace std;
 struct Input {
     vector<double> numbers;
@@ -19,7 +20,7 @@ void svg_begin(double width, double height);
 void svg_end();
 void svg_text(double left, double baseline, string text);
 void svg_rect(double x, double y, double width, double height, string stroke , string fill );
-void show_histogram_svg(const vector<size_t>& bins,Input input);
+void show_histogram_svg(const vector<size_t>& bins,Input input, string info);
 Input
 download(const string& address);
-
+string make_info_text();
