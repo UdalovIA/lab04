@@ -36,8 +36,13 @@ read_input(istream& in,bool prompt) {
     if(prompt)
     cerr << "Enter column count: ";
     in >> data.bin_count;
-    data.image_wigth = 400;
-    //do {cerr << "Width: ";in >> data.image_wigth;if (data.image_wigth < 70)cerr << "The value is too small" << endl;else if (data.image_wigth > 800)cerr << "The value is too big" << endl;}while(data.image_wigth > 800 | data.image_wigth < 70);
+    do {cerr << "Width: ";in >> data.image_wigth;
+        if (data.image_wigth < 70)
+            cerr << "The value is too small" << endl;
+        else if (data.image_wigth > 800)
+            cerr << "The value is too big" << endl;
+        }
+        while(data.image_wigth > 800 | data.image_wigth < 70);
     return data;
 }
 vector<size_t> make_histogram(Input input){
@@ -157,10 +162,10 @@ download(const string& address) {
                 curl_easy_setopt(curl, CURLOPT_WRITEDATA, &buffer);
                 res = curl_easy_perform(curl);
                 double total;
-                CURLcode result = curl_easy_perform(curl);
-                    if(CURLE_OK == result) {
-                        result = curl_easy_getinfo(curl, CURLINFO_TOTAL_TIME, &total);
-                    if(CURLE_OK == result) {
+
+                    if(CURLE_OK == res) {
+                        res = curl_easy_getinfo(curl, CURLINFO_TOTAL_TIME, &total);
+                    if(CURLE_OK == res) {
                     cerr << "Time: " << total;
                     }
                         }
@@ -200,7 +205,7 @@ string make_info_text()
     DWORD Size = sizeof(system_name);
     GetComputerNameA(system_name, &Size);
     //printf("System name: %s\n", system_name);
-    buffer << "Windows v" << version_major << "." << version_minor << " (build " << build << ")" << " " << "Computer name: " << system_name;
+    buffer << "Windows v" << version_major << "." << version_minor << " (build " << build << ")" << endl << "Computer name: " << system_name;
     return buffer.str();
 }
 

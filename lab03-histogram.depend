@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-2  т
+2 т
 	
 
 1621796550 source:c:\users\ilyau\onedrive\desktop\ЛАБЫ\прога 2 сем\cs19-lab01-master\main.cpp
@@ -65,4 +65,62 @@
 1618201874 c:\users\ilyau\onedrive\desktop\ЛАБЫ\прога 2 сем\cs19-lab01-master\curl\include\curl\options.h
 
 1618203848 c:\users\ilyau\onedrive\desktop\ЛАБЫ\прога 2 сем\cs19-lab01-master\curl\include\curl\typecheck-gcc.h
+
+1623234211 source:c:\users\ilyau\onedrive\desktop\ЛАБЫ\прога 2 сем\lab04\main.cpp
+	<iostream>
+	<vector>
+	"histogram.h"
+
+1623234211 c:\users\ilyau\onedrive\desktop\ЛАБЫ\прога 2 сем\lab04\histogram.h
+	<vector>
+	<string>
+	<sstream>
+	<curl/curl.h>
+	<windows.h>
+
+1623233701 c:\users\ilyau\onedrive\desktop\ЛАБЫ\прога 2 сем\lab04\curl\include\curl\curl.h
+	"curlver.h"
+	"system.h"
+	<stdio.h>
+	<limits.h>
+	<osreldate.h>
+	<sys/types.h>
+	<time.h>
+	<winsock2.h>
+	<ws2tcpip.h>
+	<sys/select.h>
+	<sys/socket.h>
+	<sys/time.h>
+	<support/SupportDefs.h>
+	"easy.h"
+	"multi.h"
+	"urlapi.h"
+	"options.h"
+	"typecheck-gcc.h"
+
+1623233701 c:\users\ilyau\onedrive\desktop\ЛАБЫ\прога 2 сем\lab04\curl\include\curl\curlver.h
+
+1623233701 c:\users\ilyau\onedrive\desktop\ЛАБЫ\прога 2 сем\lab04\curl\include\curl\system.h
+	<winsock2.h>
+	<windows.h>
+	<ws2tcpip.h>
+	<sys/types.h>
+	<sys/socket.h>
+	<sys/poll.h>
+
+1623233701 c:\users\ilyau\onedrive\desktop\ЛАБЫ\прога 2 сем\lab04\curl\include\curl\easy.h
+
+1623233701 c:\users\ilyau\onedrive\desktop\ЛАБЫ\прога 2 сем\lab04\curl\include\curl\multi.h
+	"curl.h"
+
+1623233701 c:\users\ilyau\onedrive\desktop\ЛАБЫ\прога 2 сем\lab04\curl\include\curl\urlapi.h
+	"curl.h"
+
+1623233701 c:\users\ilyau\onedrive\desktop\ЛАБЫ\прога 2 сем\lab04\curl\include\curl\options.h
+
+1623233701 c:\users\ilyau\onedrive\desktop\ЛАБЫ\прога 2 сем\lab04\curl\include\curl\typecheck-gcc.h
+
+1623920602 source:c:\users\ilyau\onedrive\desktop\ЛАБЫ\прога 2 сем\lab04\histogram.cpp
+	"histogram.h"
+	<iostream>
 
